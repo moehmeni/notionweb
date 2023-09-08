@@ -5,13 +5,13 @@ branding:
   color: white
   icon: table
 inputs:
-  page_id:
+  page:
     description: 'The ID of the Notion page you want to publish'
     required: true
-  token_v2:
+  token-v2:
     description: 'Your Notion token_v2'
     required: true
-  file_token:
+  file-token:
     description: 'Your Notion file token'
     required: true
 
@@ -20,10 +20,9 @@ runs:
   image: 'Dockerfile'
 
 args:
-  - ${{ format('index.html:{0}', inputs.page_id) }}
-  - --token_v2
-  - ${{ inputs.token_v2 }}
-  - --file_token
-  - ${{ inputs.file_token }}
+  - ${{ format('index.html:{0}', inputs.page) }}
+  - --token-v2
+  - ${{ inputs.token-v2 }}
+  - --file-token
+  - ${{ inputs.file-token }}
   - -w
-  
