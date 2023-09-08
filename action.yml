@@ -18,11 +18,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-
-args:
-  - ${{ format('index.html:{0}', inputs.page) }}
-  - --token-v2
-  - ${{ inputs.token-v2 }}
-  - --file-token
-  - ${{ inputs.file-token }}
-  - -w
+  args:
+    - ${{ format('index.html:{0}', inputs.page) }}
+    - --token-v2
+    - ${{ inputs.token-v2 }}
+    - --file-token
+    - ${{ inputs.file-token }}
+    - -w
