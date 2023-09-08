@@ -1,0 +1,29 @@
+name: NotHub
+author: Mohammad Momeni
+description: Create your website/blog using Notion and publish it on GitHub pages
+branding:
+  color: white
+  icon: table
+inputs:
+  page_id:
+    description: 'The ID of the Notion page you want to publish'
+    required: true
+  token_v2:
+    description: 'Your Notion token_v2'
+    required: true
+  file_token:
+    description: 'Your Notion file token'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+args:
+  - ${{ format('index.html:{0}', inputs.page_id) }}
+  - --token_v2
+  - ${{ inputs.token_v2 }}
+  - --file_token
+  - ${{ inputs.file_token }}
+  - -w
+  
